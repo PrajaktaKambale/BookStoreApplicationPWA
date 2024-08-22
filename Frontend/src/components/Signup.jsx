@@ -22,10 +22,7 @@ function Signup() {
       password: data.password,
     };
     await axios
-      .post(
-        "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/user/signup",
-        userInfo
-      )
+      .post("https://bookstoreapplication-pwa.vercel.app/user/signup", userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {

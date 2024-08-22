@@ -54,8 +54,17 @@ const Contact = () => {
     }
 
     try {
+      // const response = await axios.post(
+      //   "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/contact",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
       const response = await axios.post(
-        "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/contact",
+        "https://bookstoreapplication-pwa.vercel.app/contact",
         formData,
         {
           headers: {

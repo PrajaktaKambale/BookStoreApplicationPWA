@@ -15,7 +15,7 @@ function Course() {
     const getBook = async () => {
       try {
         const res = await axios.get(
-          "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/book"
+          "https://bookstoreapplication-pwa.vercel.app/book"
         );
         console.log(res.data);
         setBook(res.data);
