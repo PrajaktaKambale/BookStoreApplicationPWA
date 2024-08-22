@@ -17,7 +17,10 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post(`${BASE_URL}/user/login`, userInfo)
+      .post(
+        "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/user/login",
+        userInfo
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data) {

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 console.log(import.meta.env);
+axios.defaults.withCredentials = true;
 
 console.log("BASE_URL:", BASE_URL); // Verify the URL
 
@@ -13,7 +14,9 @@ function Course() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/book`);
+        const res = await axios.get(
+          "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa/book"
+        );
         console.log(res.data);
         setBook(res.data);
       } catch (error) {
