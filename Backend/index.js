@@ -19,6 +19,14 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const MONGODBURI = process.env.MongoDBURI;
 
+app.use(
+  cors({
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
+
 //connect to mongodb
 try {
   mongoose.connect(MONGODBURI);
