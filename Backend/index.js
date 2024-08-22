@@ -21,7 +21,9 @@ const MONGODBURI = process.env.MongoDBURI;
 
 app.use(
   cors({
-    origin: ["https://deploy-mern-1whq.vercel.app"],
+    origin: [
+      "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa",
+    ],
     methods: ["POST", "GET"],
     credentials: true,
   })
