@@ -16,21 +16,37 @@ app.use("/uploads", express.static("uploads"));
 // app.use(
 //   cors({ origin: "https://bookstoreapplication-pwa-dqf4-gcgf5nhpj.vercel.app" })
 // );
-app.use(cors({ origin: "https://bookstoreapplication-pwa-dqf4.vercel.app" }));
+// app.use(cors({ origin: "https://bookstoreapplication-pwa-dqf4.vercel.app" }));
+
+app.use(cors());
+app.options("*", cors());
 
 dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 const MONGODBURI = process.env.MongoDBURI;
+const allowedOrigins = ["https://bookstoreapplication-pwa-dqf4.vercel.app"];
+
+// app.use(
+//   cors({
+//     // origin: [
+//     //   "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa-dqf4",
+//     // ],
+//     origin: ["https://bookstoreapplication-pwa-dqf4.vercel.app"],
+//     methods: ["POST", "GET"],
+//     credentials: true,
+//   })
+// );
 
 app.use(
   cors({
-    // origin: [
-    //   "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa-dqf4",
-    // ],
-    origin: ["https://bookstoreapplication-pwa-dqf4.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
 
