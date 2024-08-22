@@ -25,18 +25,14 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 const MONGODBURI = process.env.MongoDBURI;
-const allowedOrigins = ["https://bookstoreapplication-pwa-dqf4.vercel.app"];
 
-// app.use(
-//   cors({
-//     // origin: [
-//     //   "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa-dqf4",
-//     // ],
-//     origin: ["https://bookstoreapplication-pwa-dqf4.vercel.app"],
-//     methods: ["POST", "GET"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ["https://bookstoreapplication-pwa-dqf4.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 
 app.use(
   cors({
