@@ -13,6 +13,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
+app.use(
+  cors({ origin: "https://bookstoreapplication-pwa-dqf4-gcgf5nhpj.vercel.app" })
+);
 
 dotenv.config();
 
@@ -22,7 +25,7 @@ const MONGODBURI = process.env.MongoDBURI;
 app.use(
   cors({
     origin: [
-      "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa",
+      "https://vercel.com/prajakta-kambales-projects/bookstoreapplication-pwa-dqf4",
     ],
     methods: ["POST", "GET"],
     credentials: true,
